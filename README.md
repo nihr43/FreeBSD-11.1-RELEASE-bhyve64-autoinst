@@ -8,10 +8,10 @@ just some files to be cloned to a dedicated vm for building my freebsd autoinsta
 enables single-button building of fresh VMs using vm-bhyve rather than having to clone/image-provision
 
 installerconfig expects to be inside a bhyve vm ... it looks for vtnet0..
-  -> the hostname is set to the last six of the mac address so vm can be reached thanks to ddns
-  -> ttys are stripped down to save a tiny bit of ram
-  -> forces a pkg and freebsd update
-  -> other self-explaned stuff
+  - the hostname is set to the last six of the mac address so vm can be reached thanks to ddns
+  - ttys are stripped down to save a tiny bit of ram
+  - forces a pkg and freebsd update
+  - other self-explaned stuff
 
 rc.local is here because the stock installer requires a user to hit a key to choose serial TTY type.  I hardcoded a value..
 
