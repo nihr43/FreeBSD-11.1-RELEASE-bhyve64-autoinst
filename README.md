@@ -8,6 +8,7 @@ Builds FreeBSD-11.1-RELEASE-bhyve64-autoinst.iso with the following proterties
 - ssh enabled
 - no password
 - my pubkey
+- reliable ntp
 - a single serial TTY
 - auto UFS root disk
 - DHCP on vtnet0
