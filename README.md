@@ -1,20 +1,24 @@
-# freebsd-autoinst
+freebsd-autoinst
+======
+
+Entirely self-proficient.  Clone to a fresh freebsd machine, customize the installerconfig, and run ./patch_iso.sh.
+
+Builds FreeBSD-11.1-RELEASE-bhyve64-autoinst.iso with the following proterties
+
+- ssh enabled
+- no password
+- my pubkey
+- a single serial TTY
+- auto UFS root disk
+- DHCP on vtnet0
+- hostname determined by the mac address of vtnet0.  aa:bb:cc:dd:ee:ff becomes host ddeeff
 
 
-Builds FreeBSD-11.1-RELEASE-bhyve64-autoinst.iso with ssh enabled, no password, my pubkey,  a single serial TTY, auto UFS root disk, DHCP on vtnet0, and a hostname determined by the mac address of vtnet0
+Files
+------
 
+installerconfig is the script run at install time.  currently it expects to be inside a basic bhyve VM.  could easily be modified for physical.
 
-I saw some traffic on this so i'll explain myself...
+rc.local is here because the stock installer requires a user to hit a key to choose serial TTY type when no display is detected.  I hardcoded a value..
 
-just some files to be cloned to a dedicated vm for building my freebsd autoinstaller.
-
-enables single-button building of fresh VMs using vm-bhyve rather than having to clone/image-provision
-
-installerconfig expects to be inside a bhyve vm ... it looks for vtnet0..
-  - the hostname is set to the last six of the mac address so vm can be reached thanks to ddns
-  - ttys are stripped down to save a tiny bit of ram
-  - forces a pkg and freebsd update
-
-rc.local is here because the stock installer requires a user to hit a key to choose serial TTY type.  I hardcoded a value..
-
-patch_iso is the actual magic.  it rips open a stock iso, injects my files, zips it back up, and cleans up after itself
+patch_iso.sh is the actual magic.  it rips open a stock iso, injects my files, zips it back up, and cleans up after itself
