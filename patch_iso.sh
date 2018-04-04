@@ -21,7 +21,7 @@ ORIG_ISO_DIR=`mktemp -d`
 ## mdconfig command from some smartOS guy
 mount -t cd9660 /dev/`mdconfig -f FreeBSD-11.1-RELEASE-amd64-disc1.iso` $ORIG_ISO_DIR
 
-rsync -aq $ORIG_ISO_DIR $PATCHED_ISO_DIR
+rsync -aq $ORIG_ISO_DIR/ $PATCHED_ISO_DIR/
 
 # make modifications
 cp ./installerconfig $PATCHED_ISO_DIR/etc/installerconfig
