@@ -1,9 +1,9 @@
 #!/bin/sh
 
+pkg install -y cdrtools ca_root_nss rsync
 
 if [ ! -e FreeBSD-11.1-RELEASE-amd64-disc1.iso ]
 then
-	pkg install -y ca_root_nss
 	fetch https://download.freebsd.org/ftp/releases/amd64/amd64/ISO-IMAGES/11.1/FreeBSD-11.1-RELEASE-amd64-disc1.iso.xz
 	xz -d ./FreeBSD-11.1-RELEASE-amd64-disc1.iso.xz
 fi
